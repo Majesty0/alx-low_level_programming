@@ -1,20 +1,20 @@
-#include <stdio.h>
+ #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - Entry point
- * Description: 'prints the alphabet in lower case'
- * Return: always 0
+ * main - Prints the alphabet in lowercase, followed by a new line.
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int n = 97;
+	char letter;
 
-	while
-		(n <= 122);
+	for (letter = 'a'; letter <= 'z'; ++letter)
 	{
-		putchar(n);
-		n++;
+		putchar(letter);
 	}
 	putchar('\n');
+
 	return (0);
 }
-
