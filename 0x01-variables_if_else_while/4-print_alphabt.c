@@ -1,21 +1,23 @@
-#include <stdlib.h>
 #include <stdio.h>
 /**
  * main - Entry point
- * Description: 'prints alphabets except e and q'
- * Return: always 0 (success)
+ * Description: 'prints alphabets in lower case without e and q'
+ * Return: always o (success)
  */
 int main(void)
 {
-	char except;
+	int n = 97;
 
-	for (except = 'a' ; except <= 'z' ; ++except)
+	while
+	(n <= 122)
 	{
-		if
-		(except != 'q' && except != 'e');
+		if (n == 101 || n == 113)
 		{
-		putchar(except);
+			n++;
+			continue;
 		}
+		putchar(n);
+		n++;
 	}
 	putchar('\n');
 	return (0);
