@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 /**
  * main - Entry poitn
@@ -9,11 +8,12 @@ int main(void)
 {
 	int n = 0;
 
-	while
-	(n <= 9)
+	for
+	(n = 0;
+	 n <= 9;
+	 n++)
 	{
-		putchar(n);
-		n++;
+		putchar(n + 48);
 	}
 	putchar('\n');
 	return (0);
