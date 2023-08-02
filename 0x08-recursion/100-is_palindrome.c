@@ -31,7 +31,7 @@ int palind3(char *a, int l)
 }
 /**
  * is_palindrome - checks if a string is a palindrome
- * @s: string to evaluate 
+ * @s: string to evaluate
  * Return: On success 1 and 0 on error
  * errno is set appropriately.
  */
