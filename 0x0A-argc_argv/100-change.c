@@ -1,38 +1,71 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
- * _atoi - convert a string representation of an integer to an integer
- *
- * @s: string possibly containing an integer
- *
- * Return: first integer in string
+ * coinConverter - Helper function that does all the mathematics
+ * @i: Passed in variable from main for calculations
+ * Return: The number of coins needed minimum for the passed in variable
  */
-int _atoi(char *s)
+int coinConverter(int i)
 {
-	int signs = 1;
-	unsigned int sum = 0;
-	int final = 0;
+	int count = 0;
 
-	for (; *s != '\0'; s++)
+	while (i != 0)
 	{
-		if (*s == '-')
-			signs *= -1;
-		else if (*s >= '0' && *s <= '9')
-			break;
-	}
-	while (*s >= '0' && *s <= '9')
-	{
-		sum *= 10;
-		sum += *s - '0';
-		s++;
+		if (i % 10 == 9 || i % 10 == 7)
+			i -= 2;
+		else if (i % 25 == 0)
+			i -= 25;
+		else if (i % 10 == 0)
+			i -= 10;
+		else if (i % 5 == 0)
+			i -= 5;
+		else if (i % 2 == 0)
+		{
+			if (i % 10 == 6)
+				i -= 1;
+			else
+				i -= 2;
+		}
+		else
+			i -= 1;
+
+		count++;
 	}
 
-	if (signs == -1)
-		final = -sum;
-	else
-		final = sum;
-
-	return (final);
+	return (count);
 }
+
+/**
+ * main - Takes in exactly one argument for minimum coin count
+ * @argc: Number of command line arguments
+ * @argv: Array name
+ * Return: 0 if exactly 1 argument is passed into this program, 1 otherwise
+ */
+int main(int argc, char *argv[])
+{
+	int i, coin;
+
+	coin = 0;
+
+	if (argc != 2)
+	{
+		printf("Error\n");
+		return (1);
+	}
+
+	i = atoi(argv[1]);
+
+	if (i < 0)
+		printf("0\n");
+	else
+	{
+		coin = coinConverter(i);
+
+		printf("%d\n", coin);
+	}
+
+	return (0);
+}
+
